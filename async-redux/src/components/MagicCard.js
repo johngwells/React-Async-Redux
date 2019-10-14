@@ -8,8 +8,8 @@ const MagicCard = ({ magic }) => {
           <img src={card.imageUrl} alt={card.name} />
           <p>set: {card.setName}</p>
           <p>name: {card.name}</p>
-          <p>color: {card.color}</p>
-          <p>text: {card.text}</p>
+          <p>color: {card.colors}</p>
+          <p>{card.text}</p>
         </div>
       ))}
     </div>
