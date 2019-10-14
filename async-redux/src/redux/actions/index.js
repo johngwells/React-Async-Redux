@@ -13,5 +13,5 @@ export const fetchData = () => dispatch => {
   axios
     .get('https://api.magicthegathering.io/v1/cards')
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
-    .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.res }))
+    .catch(err => dispatch({ type: FETCH_FAILURE, payload: err}))
 }
