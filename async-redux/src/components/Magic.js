@@ -1,16 +1,32 @@
 import React, { useEffect } from 'react';
-import { fetchData } from '../redux/actions';
+import { connect } from 'react-redux';
 
-const Magic = () => {
+import { fetchData } from '../redux/actions/index';
+
+import MagicCard from './MagicCard';
+
+const Magic = ({ fetchData, magic }) => {
   useEffect(() => {
     fetchData()
+
   }, [fetchData])
 
   return (
     <div>
-      <h1>Magic Data</h1>
+      {
+        Object.values(magic).map(magic => (
+          <MagicCard key={Date.now()} magic={magic} />
+        ))
+      }
     </div>
   );
 }
 
-export default Magic;
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    magic: state.magic
+  }
+}
+
+export default connect(mapStateToProps, { fetchData })(Magic);
